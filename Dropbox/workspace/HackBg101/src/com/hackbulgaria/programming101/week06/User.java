@@ -5,34 +5,21 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class User {
-	private Integer id;
-	private String firstName;
-	private String lastName;
-	private int age;
-	private BankAccount ba;
-
 	private enum Type {
 		simple, complex
 	};
 
 	public User(String userName, int age, Integer id) {
-		this.id = id;
-		String[] str = userName.split(" ");
-		this.firstName = str[0];
-		this.lastName = str[1];
-		this.age = age;
-		this.ba = new BankAccount(0, 0., Type.simple);
+		new BankAccount(0, 0., Type.simple);
 	}
 
 	class BankAccount {
 		private Integer balance;
 		private Double interest;
-		private Type type;
 
 		public BankAccount(Integer balance, Double interest, Type type) {
 			this.balance = balance;
 			this.interest = interest;
-			this.type = type;
 		}
 
 		public Integer getBalance() {
@@ -52,11 +39,10 @@ public class User {
 		}
 
 		public String getType() {
-			return type;
+			return "type";
 		}
 
-		public void setType(String type) {
-			this.type = type;
+		public void setType(Type type) {
 		}
 	}
 
@@ -87,6 +73,7 @@ public class User {
 	public static void main(String... args) throws IOException {
 		HashMap<String, User> users = new HashMap<>();
 		try {
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			String name = sc.nextLine();
 			if (!name.contains(" ") && !name.matches("^[0-9]")) {

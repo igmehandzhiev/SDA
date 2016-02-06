@@ -239,14 +239,15 @@ public class Task01 {
 		String[] str = arg.split(" +");
 		String result = "";
 		for (String string : str) {
-			result += reverseMe(string)+" ";
+			result += reverseMe(string) + " ";
 		}
 		return result;
 	}
 
-	boolean isPalindrome(String argument){
-		
+	boolean isPalindrome(String argument) {
+		return true;
 	}
+
 	public static void main(String args[]) {
 		// int[] arr = { 1, 2, 3, 4, 5, 1, 2, 3, 1 };
 		// int[][] arr = { { 1, 2, 5 }, { 6, 4, 3 } };
